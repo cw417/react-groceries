@@ -5,9 +5,9 @@ import GroceryInput from './components/GroceryInput';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = [
-  {id: uuidv4(), name: 'item 1', amount: '2'},
-  {id: uuidv4(), name: 'item 2', amount: '2'},
-  {id: uuidv4(), name: 'item 3', amount: '2'},
+  {id: uuidv4(), name: 'tomatoes', amount: '4'},
+  {id: uuidv4(), name: 'potatoes', amount: '2'},
+  {id: uuidv4(), name: 'bread', amount: '1'},
 ]
 
 function App() {
