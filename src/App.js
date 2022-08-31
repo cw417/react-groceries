@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import GroceryList from './components/GroceryList';
 
 const initialState = [
-  {name: 'item 1'},
-  {name: 'item 2'},
-  {name: 'item 3'},
+  {name: 'item 1', amount: '2'},
+  {name: 'item 2', amount: '2'},
+  {name: 'item 3', amount: '2'},
 ]
 
 function App() {
@@ -27,11 +27,13 @@ function App() {
   }, [groceries])
 
   return (
-    <div>
-      <div>Groceries</div>
-      <GroceryList
-        groceries={groceries}
-       />
+    <div className='flex flex-row justify-center'>
+      <div className='flex flex-col text-center bg-blue-300'>
+        <div className='text-3xl'>Groceries</div>
+        <GroceryList
+          groceries={groceries}
+        />
+      </div>
     </div>
   );
 }

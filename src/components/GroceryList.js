@@ -5,7 +5,7 @@ export default function GroceryList({ groceries }) {
     groceries.map((grocery, index) => {
       return (
         <div key={index}>
-          {grocery.name}
+          {grocery.amount} {grocery.name}
         </div>
       )
     })
