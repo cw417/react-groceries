@@ -39,8 +39,8 @@ function App() {
   }
 
   return (
-    <div className='flex flex-row justify-center'>
-      <div className='flex flex-col text-center bg-blue-300'>
+    <div className='flex flex-row justify-center m-10'>
+      <div className='flex flex-col text-center bg-blue-300 p-10 rounded-xl'>
         <div className='text-3xl'>Groceries</div>
         <GroceryInput 
           addGrocery={addGrocery}
