@@ -51,6 +51,7 @@ function App() {
     const newGroceries = groceries.filter(grocery => grocery.id !== id)
     setGroceries(newGroceries)
   }
+
   return (
     <div className='flex flex-row justify-center m-10'>
       <div className='flex flex-col text-center bg-blue-300 p-10 rounded-xl'>
