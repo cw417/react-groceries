@@ -29,6 +29,11 @@ function App() {
   }, [groceries])
 
   function addGrocery(amount, name) {
+    /**
+     * Creates a new grocery object and adds it to the groceries array.
+     * @param {String} amount    Amount of grocery item.
+     * @param {String} name      Name of grocery item.
+     */
     const newGrocery = {
       id: uuidv4(),
       name: name,
@@ -38,6 +43,14 @@ function App() {
     setGroceries(newGroceries)
   }
 
+  function removeGrocery(id) {
+    /**
+     * Removes a grocery from the groceries array based on id.
+     * @param {String} id    UUID of the grocery.
+     */
+    const newGroceries = groceries.filter(grocery => grocery.id !== id)
+    setGroceries(newGroceries)
+  }
   return (
     <div className='flex flex-row justify-center m-10'>
       <div className='flex flex-col text-center bg-blue-300 p-10 rounded-xl'>
@@ -47,6 +60,7 @@ function App() {
         />
         <GroceryList
           groceries={groceries}
+          removeGrocery={removeGrocery}
         />
       </div>
     </div>
