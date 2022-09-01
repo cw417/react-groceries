@@ -52,6 +52,20 @@ function App() {
     setGroceries(newGroceries)
   }
 
+  function updateGrocery(id, amount, name) {
+    /**
+     * Updates the name or quantity of an item.
+     * @param {String} id        UUID of grocery.
+     * @param {String} amount    Amount of item.
+     * @param {String} name      Name of item.
+     */
+    const newGroceries = [...groceries]
+    const grocery = newGroceries.find(grocery => grocery.id === id)
+    if (name !== '') { grocery.name = name }
+    if (amount !== '') { grocery.amount = amount }
+    setGroceries(newGroceries)
+  }
+
   return (
     <div className='flex flex-row justify-center m-10'>
       <div className='flex flex-col text-center bg-blue-300 p-10 rounded-xl'>
@@ -62,6 +76,7 @@ function App() {
         <GroceryList
           groceries={groceries}
           removeGrocery={removeGrocery}
+          updateGrocery={updateGrocery}
         />
       </div>
     </div>

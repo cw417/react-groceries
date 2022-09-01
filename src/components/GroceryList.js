@@ -1,7 +1,7 @@
 import React from 'react'
 import Grocery from './Grocery';
 
-export default function GroceryList({ groceries, removeGrocery }) {
+export default function GroceryList({ groceries, removeGrocery, updateGrocery }) {
   return (
     groceries.map((grocery, index) => {
       return (
@@ -9,6 +9,7 @@ export default function GroceryList({ groceries, removeGrocery }) {
           <Grocery 
             grocery={grocery}
             removeGrocery={removeGrocery}
+            updateGrocery={updateGrocery}
           />
         </div>
       )

@@ -1,23 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FiX, FiEdit } from 'react-icons/fi';
 
-export default function Grocery({ grocery, removeGrocery }) {
+export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
 
   const [ editing, setEditing ] = useState(false)
   const [ displayNormal, setDisplayNormal ] = useState('block')
   const [ displayEdit, setDisplayEdit] = useState('none')
+  const groceryAmount = useRef()
+  const groceryName = useRef()
 
+  // toggle display settings on editing change
+  // update grocery info if refs change
   useEffect(() =>{
     if(editing === false) {
       setDisplayNormal('block')
       setDisplayEdit('none')
       console.log('Editing: ' + grocery.name)
+      const amount = groceryAmount.current.value
+      const name = groceryName.current.value
+      updateGrocery(grocery.id, amount, name)
     } else {
       setDisplayNormal('none')
       setDisplayEdit('block')
       console.log('Finished editing: ' + grocery.name)
     }
-  }, [editing])
+  }, [editing, grocery, updateGrocery])
+
 
   function handleRemoveGrocery() {
     console.log(`Removing: ${grocery.name}`)
@@ -30,7 +38,9 @@ export default function Grocery({ grocery, removeGrocery }) {
 
   return (
     <div className='flex flex-row'>
-      <div style={{display:displayEdit}}>EDITING</div>
+
+      <input ref={groceryAmount} style={{display:displayEdit}} className='w-1/12 text-center my-2 ml-4 rounded-xl' type='text' placeholder={grocery.amount} />
+      <input ref={groceryName} style={{display:displayEdit}} className='w-1/4 my-2 ml-8 mr-16 px-2 rounded-xl' type='text' placeholder={grocery.name} />
       
       <div style={{display:displayNormal}} className='grocery-amount'>{grocery.amount}</div>
       <div style={{display:displayNormal}} className='grocery-name'>{grocery.name}</div>
