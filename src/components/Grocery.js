@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FiX, FiEdit } from 'react-icons/fi';
 
 export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
@@ -9,7 +9,7 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
   const groceryAmount = useRef()
   const groceryName = useRef()
 
-  const toggleDisplay = useCallback(() => {
+  useEffect(() =>{
   /**
    * Toggles between normal and edit mode.
    * Updates grocery info if the groceryName or groceryAmount refs change.
@@ -17,23 +17,19 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
     if(editing === false) {
       setDisplayNormal('block')
       setDisplayEdit('none')
-      console.log('Editing: ' + grocery.name)
       const amount = groceryAmount.current.value
       const name = groceryName.current.value
       updateGrocery(grocery.id, amount, name)
       // clear refs so text appears as placeholder again
       groceryAmount.current.value = null
       groceryName.current.value = null
+      console.log('Finished editing: ' + grocery.name)
     } else {
       setDisplayNormal('none')
       setDisplayEdit('block')
-      console.log('Finished editing: ' + grocery.name)
+      console.log('Editing: ' + grocery.name)
     }
   }, [editing, grocery]) 
-
-  useEffect(() =>{
-    toggleDisplay()
-  }, [toggleDisplay]) 
 
   function handleRemoveGrocery() {
     console.log(`Removing: ${grocery.name}`)
