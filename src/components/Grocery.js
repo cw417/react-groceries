@@ -23,11 +23,9 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
       // clear refs so text appears as placeholder again
       groceryAmount.current.value = null
       groceryName.current.value = null
-      console.log('Finished editing: ' + grocery.name)
     } else {
       setDisplayNormal('none')
       setDisplayEdit('block')
-      console.log('Editing: ' + grocery.name)
     }
   }, [editing, grocery]) 
 
@@ -43,17 +41,17 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
   return (
     <div className='flex flex-row'>
 
-      <div className='flex' style={{display:displayNormal}}>
-        <div  className='grocery-amount w-1/4'>{grocery.amount}</div>
-        <div  className='grocery-name w-full'>{grocery.name}</div>
+      <div className='m-auto' style={{display:displayNormal}}>
+          <span className='mx-12 text-left'>{grocery.amount}</span>
+          <span>{grocery.name}</span>
       </div>
 
       <div className='' style={{display:displayEdit}} >
-        <input ref={groceryAmount}className='w-1/12 text-center my-2 ml-4 rounded-xl' type='text' placeholder={grocery.amount} />
-        <input ref={groceryName} className='w-1/4 my-2 ml-8 mr-16 px-2 rounded-xl' type='text' placeholder={grocery.name} />
+        <input ref={groceryAmount}className='inpt amt mr-4' type='text' placeholder={grocery.amount} />
+        <input ref={groceryName} className='inpt w-[50%]' type='text' placeholder={grocery.name} />
       </div>
         
-      <div>
+      <div className=''>
         <button className='btn' onClick={() => toggleEdit()}><FiEdit /></button>
         <button className='btn' onClick={() => handleRemoveGrocery()}><FiX /></button>
       </div>

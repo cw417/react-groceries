@@ -16,10 +16,16 @@ export default function GroceryInput({ addGrocery }) {
   }  
 
   return (
-    <div className='flex flex-row items-center my-4'>
-      <div> <input className='inpt w-20 mx-2' ref={groceryAmount} type='text' placeholder='Amt' /> </div>
-      <div> <input className='inpt' ref={groceryName} type='text' placeholder='Name' /> </div>
-      <div> <button className='btn' onClick={handleAddGrocery}><FiPlus /></button> </div>
+    <div className='flex justify-center m-4'>
+      <div className='flex justify-end mr-4 w-1/4'> 
+        <input className='inpt amt' ref={groceryAmount} type='text' placeholder='Amt' /> 
+      </div>
+      <div className=''>
+         <input className='inpt' ref={groceryName} type='text' placeholder='Name' />
+        </div>
+      <div>
+         <button className='btn' onClick={handleAddGrocery}><FiPlus /></button>
+        </div>
     </div>
   )
 }
