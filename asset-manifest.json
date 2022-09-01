@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-groceries/static/css/main.e51012a6.css",
-    "main.js": "/react-groceries/static/js/main.5b3a1f16.js",
+    "main.js": "/react-groceries/static/js/main.a6ce9b0c.js",
     "index.html": "/react-groceries/index.html",
     "main.e51012a6.css.map": "/react-groceries/static/css/main.e51012a6.css.map",
-    "main.5b3a1f16.js.map": "/react-groceries/static/js/main.5b3a1f16.js.map"
+    "main.a6ce9b0c.js.map": "/react-groceries/static/js/main.a6ce9b0c.js.map"
   },
   "entrypoints": [
     "static/css/main.e51012a6.css",
-    "static/js/main.5b3a1f16.js"
+    "static/js/main.a6ce9b0c.js"
   ]
 }
