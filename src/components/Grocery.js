@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { FiX, FiEdit } from 'react-icons/fi';
 
 export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
@@ -9,9 +9,11 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
   const groceryAmount = useRef()
   const groceryName = useRef()
 
-  // toggle display settings on editing change
-  // update grocery info if refs change
-  useEffect(() =>{
+  const toggleDisplay = useCallback(() => {
+  /**
+   * Toggles between normal and edit mode.
+   * Updates grocery info if the groceryName or groceryAmount refs change.
+   */
     if(editing === false) {
       setDisplayNormal('block')
       setDisplayEdit('none')
@@ -27,9 +29,11 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
       setDisplayEdit('block')
       console.log('Finished editing: ' + grocery.name)
     }
-  }, [editing, grocery.name, grocery.amount]) 
-  // eslint warning about adding updateGrocery as a dependency
-  // creates infinite loop when added
+  }, [editing, grocery]) 
+
+  useEffect(() =>{
+    toggleDisplay()
+  }, [toggleDisplay]) 
 
   function handleRemoveGrocery() {
     console.log(`Removing: ${grocery.name}`)
