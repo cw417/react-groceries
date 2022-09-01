@@ -15,5 +15,5 @@
 }
 
 .grocery-name {
-  @apply flex items-center w-2/6 text-left ml-6;
+  @apply flex items-center text-left ml-6;
 }
