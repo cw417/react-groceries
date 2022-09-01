@@ -54,9 +54,9 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
   return (
     <div className='flex flex-row'>
 
-      <div className='mr-auto md:ml-6' style={{display:displayNormal}}>
-        <span className='mr-12 ml-10 md:ml-4'>{grocery.amount}</span>
-        <span className='md:ml-4'>{grocery.name}</span>
+      <div className='mr-auto ml-14 md:ml-8 mt-2' style={{display:displayNormal}}>
+        <span className='mr-10 ml-2 ml-4'>{grocery.amount}</span>
+        <span className='md:ml-4 pl-0'>{grocery.name}</span>
       </div>
 
       <div className='m-auto' style={{display:displayEdit}} >
@@ -64,7 +64,7 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
         <input ref={groceryName} onKeyPress={handleKeyPress} className='inpt w-1/2' type='text' />
       </div>
         
-      <div className='flex flex-row'>
+      <div className='flex flex-row mr-4 md:mr-4'>
         <button className='btn' onClick={() => toggleEdit()}><FiEdit /></button>
         <button className='btn' onClick={() => handleRemoveGrocery()}><FiX /></button>
       </div>

@@ -11,5 +11,5 @@
 }
 
 .amt {
-  width: 4em;
+  @apply w-16;
 }

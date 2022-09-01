@@ -29,7 +29,7 @@ export default function GroceryInput({ addGrocery }) {
 
   return (
     <div className='flex justify-center m-4'>
-      <div className='flex justify-end mr-4 w-1/4'> 
+      <div className='flex justify-end mr-2 md:mr-4 w-1/4'> 
         <input className='inpt amt' ref={groceryAmount} onKeyPress={handleKeyPress} type='text' placeholder='Amt' /> 
       </div>
       <div className=''>
