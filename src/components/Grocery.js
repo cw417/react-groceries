@@ -46,12 +46,12 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
           <span>{grocery.name}</span>
       </div>
 
-      <div className='' style={{display:displayEdit}} >
+      <div className='m-auto' style={{display:displayEdit}} >
         <input ref={groceryAmount}className='inpt amt mr-4' type='text' placeholder={grocery.amount} />
         <input ref={groceryName} className='inpt w-[50%]' type='text' placeholder={grocery.name} />
       </div>
         
-      <div className=''>
+      <div className='flex flex-row'>
         <button className='btn' onClick={() => toggleEdit()}><FiEdit /></button>
         <button className='btn' onClick={() => handleRemoveGrocery()}><FiX /></button>
       </div>

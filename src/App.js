@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import GroceryList from './components/GroceryList';
 import GroceryInput from './components/GroceryInput';
 import { v4 as uuidv4 } from 'uuid';
@@ -68,16 +68,18 @@ function App() {
 
   return (
     <div className='flex flex-row justify-center m-10'>
-      <div className='flex flex-col text-center bg-blue-300 p-10 rounded-xl w-[30%]'>
-        <div className='text-3xl'>Groceries</div>
-        <GroceryInput 
-          addGrocery={addGrocery}
-        />
-        <GroceryList
-          groceries={groceries}
-          removeGrocery={removeGrocery}
-          updateGrocery={updateGrocery}
-        />
+      <div className='flex flex-col text-center bg-blue-300 p-10 rounded-xl w-full'>
+        <div className='flex flex-col w-3/4 m-auto'>
+          <div className='text-3xl'>Groceries</div>
+          <GroceryInput 
+            addGrocery={addGrocery}
+          />
+          <GroceryList
+            groceries={groceries}
+            removeGrocery={removeGrocery}
+            updateGrocery={updateGrocery}
+          />
+        </div>
       </div>
     </div>
   );
