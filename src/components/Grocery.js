@@ -19,22 +19,26 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
       const amount = groceryAmount.current.value
       const name = groceryName.current.value
       updateGrocery(grocery.id, amount, name)
+      // clear refs so text appears as placeholder again
+      groceryAmount.current.value = null
+      groceryName.current.value = null
     } else {
       setDisplayNormal('none')
       setDisplayEdit('block')
       console.log('Finished editing: ' + grocery.name)
     }
-  }, [editing, grocery, updateGrocery])
-
+  }, [editing, grocery.name, grocery.amount]) 
+  // eslint warning about adding updateGrocery as a dependency
+  // creates infinite loop when added
 
   function handleRemoveGrocery() {
     console.log(`Removing: ${grocery.name}`)
     removeGrocery(grocery.id)
   }
-  
+
   function toggleEdit() {
     setEditing(!editing)
-    }
+  }
 
   return (
     <div className='flex flex-row'>
