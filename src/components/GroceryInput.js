@@ -11,6 +11,8 @@ export default function GroceryInput({ addGrocery }) {
     const name = groceryName.current.value
     console.log(`Adding: ${amount} ${name}`)
     addGrocery(amount, name)
+    groceryAmount.current.value = null
+    groceryName.current.value = null
   }  
 
   return (
