@@ -26,6 +26,8 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
     } else {
       setDisplayNormal('none')
       setDisplayEdit('block')
+      groceryAmount.current.value = grocery.amount
+      groceryName.current.value = grocery.name
     }
   }, [editing, grocery]) 
 
@@ -38,17 +40,28 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
     setEditing(!editing)
   }
 
+  function handleKeyPress(event) {
+    /**
+     * Calls 'handleAddRecipe' when 'Enter' key is pressed.
+     * The keycode for 'Enter' is 13.
+     * @param event  Keypress event watching for 'Enter' key.
+     */
+    if (event.keyCode === 13 || event.which === 13) {
+      toggleEdit()
+    }
+  }
+
   return (
     <div className='flex flex-row'>
 
-      <div className='m-auto' style={{display:displayNormal}}>
-          <span className='mx-12 text-left'>{grocery.amount}</span>
-          <span>{grocery.name}</span>
+      <div className='mr-auto md:ml-6' style={{display:displayNormal}}>
+        <span className='mr-12 ml-10 md:ml-4'>{grocery.amount}</span>
+        <span className='md:ml-4'>{grocery.name}</span>
       </div>
 
       <div className='m-auto' style={{display:displayEdit}} >
-        <input ref={groceryAmount}className='inpt amt mr-4' type='text' placeholder={grocery.amount} />
-        <input ref={groceryName} className='inpt w-[50%]' type='text' placeholder={grocery.name} />
+        <input ref={groceryAmount} onKeyPress={handleKeyPress} className='inpt amt mr-4' type='text' />
+        <input ref={groceryName} onKeyPress={handleKeyPress} className='inpt w-1/2' type='text' />
       </div>
         
       <div className='flex flex-row'>
