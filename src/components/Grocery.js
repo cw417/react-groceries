@@ -14,7 +14,7 @@ export default function Grocery({ grocery, removeGrocery, updateGrocery }) {
    * Toggles between normal and edit mode.
    * Updates grocery info if the groceryName or groceryAmount refs change.
    */
-    if(editing === false) {
+    if(!editing) {
       setDisplayNormal('block')
       setDisplayEdit('none')
       const amount = groceryAmount.current.value
